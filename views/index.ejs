@@ -1,7 +1,27 @@
 <%- include("./partials/header.ejs")%>
 
-<%- include("./partials/navbar.ejs")%>
+<%- include("./partials/homenavbar.ejs")%>
 
-<h1>Olá Mundo!</h1>
+<body>
+    <div class="container">
+        <div class="jumbotron mt-2">
+            <h1 class="display-4">Bem vindo!</h1>
+            <p class="lead">Este é um esboço do blog da Gravity!</p>
+            <hr class="my-4">
+            <p>Descrição detalhada!</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </div>
+        <% articles.forEach( article => { %>
+        <div class="card mt-2">
+            <div class="card-header">
+                <%= article.title %>
+            </div>
+            <div class="card-body">
+                <a class="btn btn-success" href="/<%= article.slug %>">Ler artigo</a>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</body>
 
 <%- include("./partials/footer.ejs")%>

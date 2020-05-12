@@ -4,8 +4,8 @@
 
 <div class="container mt-2">
     <hr>
-    <h2>Categorias</h2>
-    <a class="btn btn-success" href="/admin/categories/new">Criar nova categoria</a>
+    <h2>Artigos</h2>
+    <a class="btn btn-success" href="/admin/articles/new">Criar novo artigo</a>
     <hr>
     <table class="table table-bordered">
         <thead>
@@ -13,23 +13,24 @@
                 <th>ID</th>
                 <th>Título</th>
                 <th>Slug</th>
+                <th>Categoria</th>
                 <th>Ações</th>
             </tr>
         </thead>
         <tbody>
-            <% categories.forEach(category =>{ %>
+            <% articles.forEach( article => { %>
             <tr>
-                <th><%= category.id %></th>
-                <th><%= category.title %></th>
-                <th><%= category.slug %></th>
-                <th>
-                    <a href="/admin/categories/edit/<%= category.id %>" class="btn btn-warning">Editar</a>
-                    <form method="POST" action="/categories/delete" style="display: inline;"
+                <td><%= article.id %></td>
+                <td><%= article.title %></td>
+                <td><%= article.slug %></td>
+                <td><%= article.category.title %></td>
+                <td>
+                    <form method="POST" action="/articles/delete" style="display: inline;"
                         onsubmit="confirmarApagar(event, this)">
-                        <input type="hidden" name="id" value="<%= category.id %>">
+                        <input type="hidden" name="id" value="<%= article.id %>">
                         <button class="btn btn-danger">Apagar</button>
                     </form>
-                </th>
+                </td>
             </tr>
             <% }) %>
         </tbody>
@@ -40,7 +41,7 @@
 <script>
     function confirmarApagar(event, form) {
         event.preventDefault();
-        let decision = confirm("Deseja mesmo apagar esta categoria?");
+        let decision = confirm("Deseja mesmo apagar este artigo?");
         if (decision) {
             form.submit();
         }
