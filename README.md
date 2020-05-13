@@ -1,2 +1,2 @@
 # GravityPress
-Gravity first Blog
+Gravity Blog
