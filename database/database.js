@@ -3,8 +3,8 @@
 
 const Sequelize = require('sequelize');
 
-const connection = new Sequelize('gravitypress', 'gravitydev', '123456AbC', {
-    host: 'mysql669.umbler.com',
+const connection = new Sequelize('gravitypress', 'root', '123456AbC!', {
+    host: 'localhost',
     dialect: 'mysql',
     timezone: '+01:00'
 });

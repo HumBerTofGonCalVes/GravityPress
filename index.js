@@ -133,6 +133,6 @@ app.get('/category/:slug', (req, res) => {
 });
 
 //Server
-app.listen(3000, () => {
+app.listen(8080, () => {
     console.log('Servidor a funcionar com sucesso!');
 });
